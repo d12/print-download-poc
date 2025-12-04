@@ -2,6 +2,10 @@
 
 A professional HTML/CSS/JavaScript invoice generator with print and PDF download functionality.
 
+## 🌐 Live Demo
+
+**View the live demo:** [https://d12.github.io/print-download-poc/](https://d12.github.io/print-download-poc/)
+
 ## Features
 
 - **Professional Invoice Design**: Clean, modern invoice layout with company branding
@@ -57,3 +61,18 @@ The invoice can be easily customized by:
 - Loading states and user feedback
 - Error handling for PDF generation
 - Keyboard shortcut support
+
+## Deployment
+
+This project is automatically deployed to GitHub Pages via GitHub Actions:
+
+1. **Automatic Deployment**: Any push to the `main` branch triggers a deployment
+2. **GitHub Actions Workflow**: Located in `.github/workflows/deploy.yml`
+3. **Live URL**: [https://d12.github.io/print-download-poc/](https://d12.github.io/print-download-poc/)
+
+### Manual Deployment
+
+To manually trigger a deployment:
+1. Go to the Actions tab in your GitHub repository
+2. Select the "Deploy to GitHub Pages" workflow
+3. Click "Run workflow"
