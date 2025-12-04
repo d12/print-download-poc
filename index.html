@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator - Proof of Concept</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Main UI Content -->
+        <div class="main-content">
+            <h1>Invoice Generator</h1>
+            <p>Generate professional invoices with print and PDF download functionality.</p>
+            
+            <div class="invoice-preview">
+                <h3>Invoice Details:</h3>
+                <ul>
+                    <li><strong>Invoice #:</strong> INV-2025-001</li>
+                    <li><strong>Client:</strong> John Smith</li>
+                    <li><strong>Services:</strong> Website Design, SEO, Maintenance, Contact Form</li>
+                    <li><strong>Total Amount:</strong> $4,347.00</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Control buttons -->
+        <div class="controls">
+            <button id="printBtn" class="btn btn-primary">Print Invoice</button>
+            <button id="downloadBtn" class="btn btn-secondary">Download PDF</button>
+            <p class="help-text">The invoice will be generated invisibly and sent to print/download without disrupting the UI.</p>
+        </div>
+
+        <!-- Invoice content -->
+        <div class="invoice" id="invoice">
+            <!-- Invoice header -->
+            <div class="invoice-header">
+                <div class="company-info">
+                    <h1>ACME Corporation</h1>
+                    <p>123 Business Street<br>
+                    City, State 12345<br>
+                    Phone: (555) 123-4567<br>
+                    Email: info@acmecorp.com</p>
+                </div>
+                <div class="invoice-title">
+                    <h2>INVOICE</h2>
+                    <div class="invoice-meta">
+                        <p><strong>Invoice #:</strong> INV-2025-001</p>
+                        <p><strong>Date:</strong> <span id="invoiceDate">December 4, 2025</span></p>
+                        <p><strong>Due Date:</strong> <span id="dueDate">January 3, 2026</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bill to section -->
+            <div class="bill-to">
+                <h3>Bill To:</h3>
+                <div class="customer-info">
+                    <p><strong>John Smith</strong><br>
+                    456 Customer Lane<br>
+                    Customer City, State 67890<br>
+                    Phone: (555) 987-6543<br>
+                    Email: john.smith@email.com</p>
+                </div>
+            </div>
+
+            <!-- Invoice items table -->
+            <div class="invoice-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Website Design & Development</strong>
+                                <br>Custom responsive website with modern UI/UX design
+                            </td>
+                            <td>1</td>
+                            <td>$2,500.00</td>
+                            <td>$2,500.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>SEO Optimization</strong>
+                                <br>On-page SEO optimization and content strategy
+                            </td>
+                            <td>10</td>
+                            <td>$75.00</td>
+                            <td>$750.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Monthly Maintenance</strong>
+                                <br>Website hosting, updates, and security monitoring
+                            </td>
+                            <td>6</td>
+                            <td>$100.00</td>
+                            <td>$600.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Custom Contact Form</strong>
+                                <br>Development of custom contact form with validation
+                            </td>
+                            <td>1</td>
+                            <td>$350.00</td>
+                            <td>$350.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Invoice totals -->
+            <div class="invoice-totals">
+                <div class="totals-table">
+                    <div class="total-row">
+                        <span class="label">Subtotal:</span>
+                        <span class="amount">$4,200.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span class="label">Tax (8.5%):</span>
+                        <span class="amount">$357.00</span>
+                    </div>
+                    <div class="total-row discount">
+                        <span class="label">Discount (5%):</span>
+                        <span class="amount">-$210.00</span>
+                    </div>
+                    <div class="total-row final">
+                        <span class="label">Total Amount:</span>
+                        <span class="amount">$4,347.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment terms and notes -->
+            <div class="invoice-footer">
+                <div class="payment-terms">
+                    <h4>Payment Terms:</h4>
+                    <ul>
+                        <li>Payment is due within 30 days of invoice date</li>
+                        <li>Please include invoice number on payment</li>
+                        <li>Late payments may incur additional fees</li>
+                        <li>Accepted payment methods: Check, Wire Transfer, Credit Card</li>
+                    </ul>
+                </div>
+                <div class="notes">
+                    <h4>Notes:</h4>
+                    <p>Thank you for your business! If you have any questions about this invoice, please contact us at (555) 123-4567 or email billing@acmecorp.com.</p>
+                </div>
+            </div>
+
+            <!-- Invoice footer with company details -->
+            <div class="company-footer">
+                <p><em>ACME Corporation • 123 Business Street, City, State 12345 • www.acmecorp.com</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
