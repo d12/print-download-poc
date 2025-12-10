@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Generator - Proof of Concept</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- pdfmake library for accessible, text-based PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.min.js"></script>
 </head>
 <body>
     <div class="container">
         <!-- Main UI Content -->
         <div class="main-content">
             <h1>Invoice Generator</h1>
-            <p>Generate professional invoices with print and PDF download functionality.</p>
+            <p>Generate professional, accessible invoices with print and PDF download functionality.</p>
             
             <div class="invoice-preview">
                 <h3>Invoice Details:</h3>
@@ -23,6 +24,16 @@
                     <li><strong>Services:</strong> Website Design, SEO, Maintenance, Contact Form</li>
                     <li><strong>Total Amount:</strong> $4,347.00</li>
                 </ul>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #e7f3ff; border-radius: 5px;">
+                    <strong>✨ Features:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>✅ Print functionality using browser's native print dialog</li>
+                        <li>✅ Download as accessible, text-based PDF (~50KB)</li>
+                        <li>✅ Screen reader compatible</li>
+                        <li>✅ Fully searchable and copyable text</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -30,7 +41,7 @@
         <div class="controls">
             <button id="printBtn" class="btn btn-primary">Print Invoice</button>
             <button id="downloadBtn" class="btn btn-secondary">Download PDF</button>
-            <p class="help-text">The invoice will be generated invisibly and sent to print/download without disrupting the UI.</p>
+            <p class="help-text">Print uses CSS media queries. PDF uses pdfmake for accessible, text-based documents.</p>
         </div>
 
         <!-- Invoice content -->
